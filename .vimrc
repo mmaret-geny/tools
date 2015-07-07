@@ -50,6 +50,8 @@ set showmode
 set showcmd
 " display line number"
 set number
+" set status line
+set statusline=%<%f\ %h%w%m%r%3.(\ %)%{fugitive#statusline()}%=%([%{Tlist_Get_Tagname_By_Line()}]%)%3.(\ %)%-14.(%l,%c%V%)\ %P
 " always display status line
 set laststatus=2
 
@@ -99,6 +101,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+
+" Show current modified line
+Plugin 'airblade/vim-gitgutter'
+
+" Communication with git
+Plugin 'tpope/vim-fugitive'
 
 " List current file function
 Plugin 'vim-scripts/taglist.vim'
