@@ -62,6 +62,23 @@ highlight link cSpaceError SpaceError
 highlight link pythonSpaceError SpaceError
 highlight SpaceError ctermfg=235 cterm=reverse
 
+if has("autocmd")
+        " enable file type detection and do language-dependent indenting
+        " filetype plugin indent on
+        " detect indentation see http://www.freehackers.org/Indent_Finder
+        if has('python')
+                autocmd BufReadPost /* execute system ('python2 ~/.vim/indent_finder/indent_finder.py --vim-output "' . expand('%') . '"' )
+        endif
+else
+        " auto-indent
+        set autoindent
+        " smart-indent
+        set smartindent
+        " C-indent
+        "set cindent
+        " indent-expr
+        "set indentexpr ""
+endif
 
 """""""""
 " Plugin"
