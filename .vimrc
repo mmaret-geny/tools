@@ -1,3 +1,9 @@
+"""""""""""""
+" SHORTCUTS "
+"""""""""""""
+"   F8          view tag list
+
+
 """""""""""
 " GENERAL "
 """""""""""
@@ -58,6 +64,33 @@ highlight SpaceError ctermfg=235 cterm=reverse
 """""""""
 " Plugin"
 """""""""
+
+" plugin taglist
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+let Tlist_Process_File_Always = 1
+let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Close_On_Select = 1
+let Tlist_Auto_Highlight_Tag = 1
+let Tlist_Display_Prototype = 0
+let Tlist_Display_Tag_Scope = 0
+let Tlist_Show_One_File = 1
+let Tlist_Compact_Format = 1
+let Tlist_Enable_Fold_Column = 0
+" sort by name or order ?
+let Tlist_Sort_Type = "name"
+"let Tlist_File_Fold_Auto_Close = 1
+let Tlist_Inc_Winwidth = 0
+"let Tlist_Use_Horiz_Window = 1
+let Tlist_Use_Right_Window = 1
+" open/close tag list window with F8
+map <silent> <F8> :TlistToggle<CR>
+
+" close preview window after a completion
+if has("autocmd")
+        autocmd CursorMovedI *.{[hc],cpp} if pumvisible() == 0|pclose|endif
+        autocmd InsertLeave *.{[hc],cpp} if pumvisible() == 0|pclose|endif
+endif
+
 "Using vundle
 "cf. https://github.com/gmarik/Vundle.vim
 ":PluginInstall to install them
@@ -67,4 +100,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" List current file function
+Plugin 'vim-scripts/taglist.vim'
 call vundle#end()
