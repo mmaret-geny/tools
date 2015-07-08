@@ -24,12 +24,12 @@
 "   single key stroke too
 "
 "   Put autotags.vim in your ~/.vim/plugin directory, open source code and
-"   press F4 (map AutotagsUpdate to change it).
+"   press F3 (map AutotagsUpdate to change it).
 "
-"   You can reindex sources by pressing F4 again.
+"   You can reindex sources by pressing F3 again.
 "
 "   To build and load additional tags for another directory (i.e. external
-"   project or library code you want to navigate to) press F3 (or map
+"   project or library code you want to navigate to) press S-F3 (or map
 "   AutotagsAdd).
 "
 "   Script builds and loads ctags and cscope databases via a single command.
@@ -82,7 +82,7 @@
 "   let g:autotags_export_cscope_dir = 0
 "
 " Public Interface:
-"   AutotagsUpdate()            build/rebuild tags (mapped to F4 by default)
+"   AutotagsUpdate()            build/rebuild tags (mapped to F3 by default)
 "   AutotagsAdd()               build and load additional tags for another directory
 "   AutotagsRemove()            remove currently used tags
 "
