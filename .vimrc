@@ -1,6 +1,9 @@
 """""""""""""
 " SHORTCUTS "
 """""""""""""
+"   F1          help
+"   F2          open file in a new tab
+" S-F2          Split and open file
 "   F3          autotags Update
 " S-F3          autotags Add
 "   F8          view tag list
@@ -132,6 +135,32 @@ endif
 " open a file in the same directory as the current file with F2 and split with shift+F2
 map <F2> :tabe <C-R>=expand("%:h") . "/"<CR>
 nmap <S-F2> :split <C-R>=expand("%:h") . "/"<CR>
+
+""""""""
+" HELP "
+""""""""
+" allow embedded man page
+runtime! ftplugin/man.vim
+" show vimrc with shift+F1
+nmap <silent> <S-F1> :tabe ~/.vimrc<CR>gg
+imap <S-F1> <Esc><S-F1>
+" show contextual help with F1
+function Help()
+        try
+        if exists('b:current_syntax') && b:current_syntax == "python"
+                :call ShowPyDoc(expand("<cword>"), 1)
+        else
+                execute "Man " . expand("<cword>")
+        endif
+        catch /:E149:/
+                execute "help " . expand("<cword>")
+        endtry
+endfunction
+nmap <silent> <F1> :call Help()<CR>
+imap <F1> <Esc><F1>
+" show VIM help with alt+shift+F1
+nmap <silent> <M-S-F1> :help <C-R>=expand("<cword>")<CR><CR>
+imap <M-S-F1> <Esc><M-S-F1>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "Omni-completion par CTRL-X_CTRL-O
