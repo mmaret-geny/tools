@@ -117,6 +117,23 @@ else
 endif
 
 """"""""""
+" SEARCH "
+""""""""""
+
+" highlight search
+set hlsearch
+" unhighlight current search
+map <silent> <F11> :nohlsearch<CR>
+imap <F11> <ESC><F11>a
+" highlight search while typing
+set incsearch
+" show matching brackets -> key %
+set showmatch
+" tenths of a second before blink matching brackets
+set mat=5
+
+
+""""""""""
 " WINDOW "
 """"""""""
 " create window below or at right of the current one
