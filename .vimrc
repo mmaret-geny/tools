@@ -6,7 +6,13 @@
 " S-F2          Split and open file
 "   F3          autotags Update
 " S-F3          autotags Add
+"   F4          open include file
+"   F5          find C symbol
+"   F6          go to definition
+"   F7          go to calls
 "   F8          view tag list
+" S-F8          build ctags/cscope databases
+" M-F8          build kernel ctags/cscope databases
 "   F9          Open NerdTree
 " M-F9          Show diff line
 " S-F9          Highlight diff line
@@ -170,6 +176,9 @@ endif
 " open a file in the same directory as the current file with F2 and split with shift+F2
 map <F2> :tabe <C-R>=expand("%:h") . "/"<CR>
 nmap <S-F2> :split <C-R>=expand("%:h") . "/"<CR>
+
+colorscheme desert
+set nocursorline
 
 """"""""
 " HELP "
