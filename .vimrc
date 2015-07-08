@@ -1,6 +1,8 @@
 """""""""""""
 " SHORTCUTS "
 """""""""""""
+"   F3          autotags Update
+" S-F3          autotags Add
 "   F8          view tag list
 "   F9          Open NerdTree
 " M-F9          Show diff line
