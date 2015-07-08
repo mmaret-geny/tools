@@ -80,6 +80,24 @@ highlight link cSpaceError SpaceError
 highlight link pythonSpaceError SpaceError
 highlight SpaceError ctermfg=235 cterm=reverse
 
+"""""""""""""""
+" INDENTATION "
+"""""""""""""""
+" use tabs at the start of a line, spaces elsewhere
+set smarttab
+set smartindent
+set autoindent
+"" tab=4
+"set tabstop=4
+"set softtabstop=4
+"set shiftwidth=4
+" tab=8
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+" real tabs
+" set noexpandtab
+
 if has("autocmd")
         " enable file type detection and do language-dependent indenting
         " filetype plugin indent on
