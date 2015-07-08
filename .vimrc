@@ -2,7 +2,9 @@
 " SHORTCUTS "
 """""""""""""
 "   F8          view tag list
-
+"   F9          Open NerdTree
+" M-F9          Show diff line
+" S-F9          Highlight diff line
 
 """""""""""
 " GENERAL "
@@ -87,6 +89,34 @@ else
         "set indentexpr ""
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"Omni-completion par CTRL-X_CTRL-O
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" Enable omnicppcompletion
+set nocp
+filetype plugin on
+let OmniCpp_ShowAccess = 0
+let OmniCpp_LocalSearchDecl=1
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+set path=.,..,/usr/local/include,/usr/include
+
+"""""""""""
+" NerdTree
+"""""""""""
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <F9>   :NERDTreeToggle<CR>
+
+"""""""""""
+" GitGutter
+"""""""""""
+map <M-F9> :GitGutterSignsToggle <CR>
+map <S-F9> :GitGutterLineHighlightsToggle <CR>
+
 """""""""
 " Plugin"
 """""""""
@@ -132,6 +162,21 @@ Plugin 'airblade/vim-gitgutter'
 " Communication with git
 Plugin 'tpope/vim-fugitive'
 
+" Omni completion for cpp
+Plugin 'vim-scripts/OmniCppComplete'
+
+" Filesystem exploration
+Plugin 'scrooloose/nerdtree'
+
 " List current file function
 Plugin 'vim-scripts/taglist.vim'
+
+" echofunc -> what is the current function signature
+Plugin 'mbbill/echofunc'
+
+" % match if/then/else/html ...
+Plugin 'tmhedberg/matchit'
+
+"Syntax checking
+Plugin 'scrooloose/syntastic.git'
 call vundle#end()
