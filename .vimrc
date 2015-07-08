@@ -7,6 +7,10 @@
 "   F9          Open NerdTree
 " M-F9          Show diff line
 " S-F9          Highlight diff line
+" C-left/right  switch tab
+" C-up/down     switch window
+" M-left/right  horizontal size
+" M-up/down     vertical size
 
 """""""""""
 " GENERAL "
@@ -90,6 +94,44 @@ else
         " indent-expr
         "set indentexpr ""
 endif
+
+""""""""""
+" WINDOW "
+""""""""""
+" create window below or at right of the current one
+set splitbelow
+set splitright
+" if multiple windows
+if bufwinnr(1)
+        " vertically increase/decrease window size with alt+up/alt+down
+        map <M-Up> <C-W>+
+        map <M-Down> <C-W>-
+        imap <M-Up> <ESC><M-Up>a
+        imap <M-Down> <ESC><M-Down>a
+        " horizontally increase/decrease window size with alt+right/alt+left
+        map <M-Right> <C-W>>
+        map <M-Left> <C-W><
+        imap <M-Right> <ESC><M-Right>a
+        imap <M-Left> <ESC><M-Left>a
+        " switch to next/previous tab with ctrl+right/ctrl+left
+        map <C-Right> gt
+        map <C-Left> gT
+        imap <C-Right> <ESC><C-Right>a
+        imap <C-Left> <ESC><C-Left>a
+        " switch to next/previous window with ctrl+down/ctrl+up
+        map <C-Down> <C-W>w
+        map <C-Up> <C-W>W
+        imap <C-Down> <ESC><C-Down>a
+        imap <C-Up> <ESC><C-Up>a
+endif
+" open automatically quickfix window
+if has("autocmd")
+	autocmd QuickFixCmdPost * cw
+endif
+
+" open a file in the same directory as the current file with F2 and split with shift+F2
+map <F2> :tabe <C-R>=expand("%:h") . "/"<CR>
+nmap <S-F2> :split <C-R>=expand("%:h") . "/"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "Omni-completion par CTRL-X_CTRL-O
