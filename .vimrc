@@ -35,6 +35,13 @@ set history=50
 au WinEnter * checktime
 au BufWinEnter * checktime
 
+"""""""""
+" INPUT "
+"""""""""
+
+" Enable mouse for 'a'll mode
+set mouse=a
+
 """""""""""
 " DISPLAY "
 """""""""""
