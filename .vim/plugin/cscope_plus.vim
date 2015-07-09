@@ -37,4 +37,9 @@ if has("cscope")
 	    map <M-F8> :CtagsKernelBuild<CR><CR>
 	endif
 
+	set tags+=./tags	" in file directory
+	set tags+=tags		" in current directory
+	"for when programming in build dir
+	set tags+=../tags
+
 endif
